@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>panel.ac</path>
+  
+  <animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>100</max-m>
+    </animation>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>panel</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>HUD1</object-name>
+    <object-name>HUD2</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>HUD1</object-name>
+    <object-name>HUD2</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>HUD1</object-name>
+    <object-name>HUD2</object-name>
+  </animation>
+
+  <!-- L PANEL -->
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/l-panel/l-panel.xml</path>
+    <offsets>
+      <x-m> -3.439 </x-m>
+      <y-m> -0.255 </y-m>
+      <z-m> -0.529 </z-m>
+    </offsets>
+  </model>
+
+  <!-- R PANEL -->
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/r-panel/r-panel.xml</path>
+    <offsets>
+      <x-m> -3.439 </x-m>
+      <y-m>  0.255 </y-m>
+      <z-m> -0.529 </z-m>
+    </offsets>
+  </model>
+
+  <!-- MFD1 -->
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd1/mfd1.xml</path>
+    <offsets>
+      <x-m> -3.592 </x-m>
+      <y-m> -0.166 </y-m>
+      <z-m> -0.330 </z-m>
+	  <pitch-deg>-17</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- MFD2 -->
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd2/mfd2.xml</path>
+    <offsets>
+      <x-m> -3.571 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.395 </z-m>
+	  <pitch-deg>-17</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- MFD3 -->
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd3/mfd3.xml</path>
+    <offsets>
+      <x-m> -3.592 </x-m>
+      <y-m>  0.166 </y-m>
+      <z-m> -0.330 </z-m>
+	  <pitch-deg>-17</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- UFC -->
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/ufc/ufc.xml</path>
+    <offsets>
+      <x-m> -3.571 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.165 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/rpm/rpm-1.xml</path>
+    <offsets>
+      <x-m> -3.545 </x-m>
+      <y-m>  0.257 </y-m>
+      <z-m> -0.448 </z-m>
+	  <pitch-deg>-17</pitch-deg>
+    </offsets>
+  </model>
+  
+   <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/egt/exh1.xml</path>
+    <offsets>
+      <x-m> -3.545 </x-m>
+      <y-m>  0.2973 </y-m>
+      <z-m> -0.448 </z-m>
+	  <pitch-deg>-17</pitch-deg>
+    </offsets>
+  </model>
+
+</PropertyList>
+

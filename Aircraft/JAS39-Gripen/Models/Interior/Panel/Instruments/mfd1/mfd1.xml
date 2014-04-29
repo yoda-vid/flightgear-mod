@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>mfd.ac</path>
+
+  <animation>
+    <object-name>mfd1</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>mfd1</object-name>
+    <emission>
+      <red>   0.8 </red>
+      <green> 0.7 </green>
+      <blue>  0.5 </blue>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+    </emission>
+  </animation>
+  
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd1/ai/stby-ai.xml</path>
+    <offsets>
+      <x-m>0.0</x-m>
+      <y-m>0 </y-m>
+      <z-m>0.07</z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd1/alt/stby-alt.xml</path>
+    <offsets>
+      <x-m>-0.0008</x-m>
+      <y-m>0.03 </y-m>
+      <z-m>0.07</z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd1/asi/stby-asi.xml</path>
+    <offsets>
+      <x-m>-0.000</x-m>
+      <y-m>-0.03 </y-m>
+      <z-m>0.07</z-m>
+    </offsets>
+  </model>
+  
+   <model>
+    <path>Aircraft/JAS39-Gripen/Models/Interior/Panel/Instruments/mfd1/enav.xml</path>
+    <offsets>
+      <x-m>-0.000</x-m>
+      <y-m>0 </y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+</PropertyList>
