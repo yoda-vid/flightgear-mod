@@ -1,20 +1,67 @@
-<?xml version="1.0"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-    ************************************************************************
-    Logitech Attack 3 joystick bindings.
+	************************************************************************
+	Logitech Attack 3 joystick bindings.
 
-    Justin Smithies 2006
-    
-    2 Axis joystick with throttle and 11 buttons.
-    ************************************************************************
-    -->
-
-<PropertyList>
+	Based on Justin Smithies 2006, with additional modifications by
+	David Young 2013 incorporated from pauljs75, planetacancun, and sanni.
 	
+	2 Axis joystick with throttle and 11 buttons.
+	
+	Configuration:
+	-Buttons labeled 6 and 7 are used as Modifier 1 and 2, respectively
+	-Axis 0: aileron
+	-Axis 1: elevator
+	-Axis 2: throttle
+	-Button labeled 1 (trigger): gun; brake (mod1)
+	-Buttons 2-5 (hat): look around; zoom/center (mod1); aileron trim/gear (mod2)
+	-Buttons 8-9 (by throttle): rudder, with auto-centering
+	-Buttons 10-11: flaps
+	************************************************************************
+-->
+<PropertyList>
 	<name>Logitech Attack 3</name>
 	<name>Logitech Logitech Attack 3</name>
 	
+	<!-- Button labeled "6", used as a 'function' button. -->
+	<button n="5">
+		<desc>Modifier 1</desc>
+		<repeatable type="bool">false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>name = "/input/joysticks/js[0]/Logitech-Attack-3-modifier";
+				setprop(name, 1);</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>name = "/input/joysticks/js[0]/Logitech-Attack-3-modifier";
+				setprop(name, 0);</script>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Button labeled "7",? used as a 'function' button  -->
+	<button n="6">
+		<desc>Modifier 2</desc>
+		<repeatable type="bool">false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				name = "/input/joysticks/js[0]/Logitech-Attack-3-modifier";
+					setprop(name, 2);</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					name = "/input/joysticks/js[0]/Logitech-Attack-3-modifier";
+						setprop(name, 0);</script>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Main stick, horizontal axis -->
 	<axis n="0">
 		<desc>Aileron</desc>
 		<binding>
@@ -24,6 +71,7 @@
 		</binding>
 	</axis>
 	
+	<!-- Main stick, vertical axis -->
 	<axis n="1">
 		<desc>Elevator</desc>
 		<binding>
@@ -34,6 +82,7 @@
 		</binding>
 	</axis>
 	
+	<!-- Throttle wheel -->
 	<axis n="2">
 		<desc>Throttle</desc>
 		<binding>
@@ -42,39 +91,220 @@
 		</binding>
 	</axis>
 	
+	<!-- Trigger -->
 	<button n="0">
-		<desc>Brakes</desc>
+		<!-- Function listed with no button pressed; With Modifier 1 -->
+		<desc>Fire weapon; Brake</desc>
+		<repeatable type="bool">false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>controls.applyBrakes(1)</script>
+			<script>
+				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+				if (mod == nil or mod == 0) {
+					setprop("/controls/armament/trigger", 1); #this seems the most common
+					setprop("ai/submodels/trigger", 1);		 #many planes use this instead
+				} elsif (mod == 1) {
+					controls.applyBrakes(1)
+				}
+			</script>
 		</binding>
 		<mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>controls.applyBrakes(0)</script>
+				<script>
+					mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+					if (mod == nil or mod == 0) {
+						setprop("/controls/armament/trigger", 0); #this seems the most common
+						setprop("ai/submodels/trigger", 0);		 #many planes use this instead
+					} elsif (mod == 1) {
+						controls.applyBrakes(0)
+					}
+				</script>
 			</binding>
 		</mod-up>
 	</button>
 	
-	<button n="2">
-		<desc>Elevator trim up</desc>
-		<repeatable type="bool">true</repeatable>
-		<binding>
-			<command>nasal</command>
-			<script>controls.elevatorTrim(1)</script>
-		</binding>
-	</button>
-	
+	<!-- Hat button labeled "2" -->
 	<button n="1">
-		<desc>Elevator trim down</desc>
-		<repeatable type="bool">true</repeatable>
+		<!-- Function with no button pressed; Mod1; Mod2 -->
+		<desc>Look up; Zoom normal; Gear down</desc>
+		<repeatable type="bool">false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>controls.elevatorTrim(-1)</script>
+			<script>
+				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+				if (mod == nil or mod == 0) {
+					setprop("/sim/current-view/pitch-offset-deg", getprop("/sim/current-view/pitch-offset-deg")+10);
+				} elsif (mod == 1) {
+					setprop("/sim/current-view/field-of-view", 55);
+				} elsif (mod == 2) {
+					controls.gearDown(1)
+				}
+			</script>
 		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+					if (mod == nil or mod == 0) {
+						#;
+					} elsif (mod == 1) {
+						#;
+					} elsif (mod == 2) {
+						controls.gearDown(0)
+					}
+				</script>
+			</binding>
+		</mod-up>
 	</button>
 	
-	<button n="6">
+	<!-- Hat button labeled "3" -->
+	<button n="2">
+		<!-- Function with no button pressed; Mod1; Mod2 -->
+		<desc>Look down; Center view; Gear up</desc>
+		<repeatable type="bool">false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+				if (mod == nil or mod == 0) {
+					setprop("/sim/current-view/pitch-offset-deg", getprop("/sim/current-view/pitch-offset-deg")-10);
+				} elsif (mod == 1) {
+					setprop("/sim/current-view/pitch-offset-deg", 0);
+					setprop("/sim/current-view/heading-offset-deg", 0);
+				} elsif (mod == 2) {
+					controls.gearDown(-1)
+				}
+			</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+					if (mod == nil or mod == 0) {
+						#;
+					} elsif (mod == 1) {
+						#;
+					} elsif (mod == 2) {
+						controls.gearDown(0)
+					}
+				</script>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Hat button labeled "4" -->
+	<button n="3">
+		<!-- Function with no button pressed; Mod1; Mod2 -->
+		<desc>Look left; Zoom out ; Left aileron trim</desc>
+		<repeatable type="bool">false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+				if (mod == nil or mod == 0) {
+					setprop("/sim/current-view/heading-offset-deg", getprop("/sim/current-view/heading-offset-deg")+30);
+				} elsif (mod == 1) {
+					setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view")+5);
+				} elsif (mod == 2) {
+					controls.aileronTrim(-0.5)
+				}
+			</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+					if (mod == nil or mod == 0) {
+						#;
+					} elsif (mod == 1) {
+						#;
+					} elsif (mod == 2) {
+						controls.aileronTrim(0)
+					}
+				</script>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Hat button labeled "5" -->
+	<button n="4">
+		<!-- Function with no button pressed; Mod1; Mod2 -->
+		<desc>Look right; Zoom in; Right Aileron trim</desc>
+		<repeatable type="bool">false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+				if (mod == nil or mod == 0) {
+					setprop("/sim/current-view/heading-offset-deg", getprop("/sim/current-view/heading-offset-deg")-30);
+				} elsif (mod == 1) {
+					setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view")-5);
+				} elsif (mod == 2) {
+				  controls.aileronTrim(0.5)
+				}
+			</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
+					if (mod == nil or mod == 0) {
+						#;
+					} elsif (mod == 1) {
+						#;
+					} elsif (mod == 2) {
+						controls.aileronTrim(0)
+					}
+				</script>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Button labeled "8" -->
+	<button n="7">
+		<desc>Left rudder</desc>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>/controls/flight/rudder</property>
+			<step type="double">-0.02</step>
+		</binding>
+		<mod-up>
+			<binding>
+				<!-- centers rudder when button lifted -->
+				<command>property-assign</command>
+				<property>/controls/flight/rudder</property>
+				<value type="double">0.0</value>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Button labeled "9" -->
+	<button n="8">
+		<desc>Right rudder</desc>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>/controls/flight/rudder</property>
+			<step type="double">0.02</step>
+		</binding>
+		<mod-up>
+			<binding>
+				<!-- centers rudder when button lifted -->
+				<command>property-assign</command>
+				<property>/controls/flight/rudder</property>
+				<value type="double">0.0</value>
+			</binding>
+		</mod-up>
+	</button>
+	
+	<!-- Button labeled "10" -->
+	<button n="9">
 		<desc>Flaps down</desc>
 		<binding>
 			<command>nasal</command>
@@ -88,7 +318,8 @@
 		</mod-up>
 	</button>
 	
-	<button n="5">
+	<!-- Button labeled "11" -->
+	<button n="10">
 		<desc>Flaps up</desc>
 		<repeatable>false</repeatable>
 		<binding>
@@ -102,66 +333,6 @@
 			</binding>
 		</mod-up>
 	</button>
-
-	<button n="7">
-		<desc>Left brake</desc>
-		<binding>
-			<command>nasal</command>
-			<script>controls.applyBrakes(1, -1)</script>
-		</binding>
-		<mod-up>
-			<binding>
-				<command>nasal</command>
-				<script>controls.applyBrakes(0, -1)</script>
-			</binding>
-		</mod-up>
-	</button>
-
-	<button n="8">
-		<desc>Right brake</desc>
-		<binding>
-			<command>nasal</command>
-			<script>controls.applyBrakes(1, 1)</script>
-		</binding>
-		<mod-up>
-			<binding>
-				<command>nasal</command>
-				<script>controls.applyBrakes(0, 1)</script>
-			</binding>
-		</mod-up>
-	</button>
-	
-	<button n="10">
-		<desc>Gear up</desc>
-		<repeatable>false</repeatable>
-		<binding>
-			<command>nasal</command>
-			<script>controls.gearDown(-1)</script>
-		</binding>
-		<mod-up>
-			<binding>
-				<command>nasal</command>
-				<script>controls.gearDown(0)</script>
-			</binding>
-		</mod-up>
-	</button>
-	
-	<button n="9">
-		<desc>Gear down</desc>
-		<repeatable>false</repeatable>
-		<binding>
-			<command>nasal</command>
-			<script>controls.gearDown(1)</script>
-		</binding>
-		<mod-up>
-			<binding>
-				<command>nasal</command>
-				<script>controls.gearDown(0)</script>
-			</binding>
-		</mod-up>
- </button>
-
 </PropertyList>
 
 <!-- end of joystick.xml -->
- 
