@@ -9,14 +9,64 @@
 			Place a virtual wingman at given x,y,z offset relative to the 
 			current main simulator aircraft.
 		</description>
-
+		
+		<!-- inside aircraft, to left and right of main aircraft -->
 		<entry>
 			<name>Flying Duo</name>
 			<type>wingman</type>
 			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
-			<x-offset>50</x-offset>
+			<x-offset>100</x-offset>
 			<y-offset>-60</y-offset>
-			<z-offset>0</z-offset>
+			<z-offset>30</z-offset>
+			<formate>true</formate>
+			<coefficients>
+				<heading>5.0</heading>
+				<pitch>4.0</pitch>
+				<bank>4.0</bank>
+				<speed>2.5</speed>
+			</coefficients>
+		</entry>
+
+		<entry>
+			<name>Flying Truo</name>
+			<type>wingman</type>
+			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<x-offset>100</x-offset>
+			<y-offset>60</y-offset>
+			<z-offset>30</z-offset>
+			<formate>true</formate>
+			<coefficients>
+				<heading>5.0</heading>
+				<pitch>4.0</pitch>
+				<bank>4.0</bank>
+				<speed>2.5</speed>
+			</coefficients>
+		</entry>
+
+		<!-- outside aircraft, to left and right of inside aircraft -->
+		<entry>
+			<name>Flying Quado</name>
+			<type>wingman</type>
+			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<x-offset>50</x-offset>
+			<y-offset>-120</y-offset>
+			<z-offset>-30</z-offset>
+			<formate>true</formate>
+			<coefficients>
+				<heading>5.0</heading>
+				<pitch>4.0</pitch>
+				<bank>4.0</bank>
+				<speed>2.5</speed>
+			</coefficients>
+		</entry>
+
+		<entry>
+			<name>Flying Truo</name>
+			<type>wingman</type>
+			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<x-offset>50</x-offset>
+			<y-offset>120</y-offset>
+			<z-offset>-30</z-offset>
 			<formate>true</formate>
 			<coefficients>
 				<heading>5.0</heading>
