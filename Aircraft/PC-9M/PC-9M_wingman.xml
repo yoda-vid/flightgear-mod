@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- PC-9M Wingman
+$Id$
+-->
+
+<PropertyList include="PC-9M.xml">
+
+	<nasal>
+		<load>
+			print("LOAD PC-9M wingman ", cmdarg().getPath());
+			var self = cmdarg();
+			<!--props.dump(self);-->
+			
+			<!-- engine n1 node to track engine power parameters -->
+			var engine_n1 = self.getNode("engines/engine/n1", 1);
+			<!-- track both L and R gear in case they operate independently -->
+			var gear_position_left = self.getNode("gear/gear[0]/position-norm", 1);
+			var gear_position_right = self.getNode("gear/gear[1]/position-norm", 1);
+			
+			<!-- update wingman with values from main simulator aircraft -->
+			var update = func {
+				engine_n1.setDoubleValue(getprop("/engines/engine/n1"));
+				gear_position_left.setDoubleValue(getprop("/gear/gear/position-norm"));
+				gear_position_right.setDoubleValue(getprop("/gear/gear/position-norm"));
+				<!--
+				props.dump(engine_n1);
+				props.dump(gear_position);
+				-->
+				
+				<!-- recursively update -->
+				settimer(update, 0);
+			}
+			update();
+			
+		</load>
+
+		<unload>
+			print("UNLOAD PC-9M wingman ", cmdarg().getPath());
+		</unload>
+	</nasal>
+
+</PropertyList>
