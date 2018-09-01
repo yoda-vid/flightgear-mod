@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- PC-9M Wingman
-$Id$
+     Author: David Young, 2018
+     Virtual wingman who will follow main simulator aircraft.
 -->
 
 <PropertyList include="PC-9M.xml">

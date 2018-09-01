@@ -1,4 +1,9 @@
 <?xml version="1.0"?>
+<!-- Virtual Wingman
+     Author: David Young, 2018
+     Scenario to load multiple surrounding aircraft that will follow 
+     exactly what you do.
+-->
 
 <PropertyList>
 	<name>Virtual Wingman</name>
@@ -6,8 +11,11 @@
 	<scenario>
 
 		<description>
-			Place a virtual wingman at given x,y,z offset relative to the 
-			current main simulator aircraft.
+			Load multiple surrounding aircraft who will follow your 
+			every move.
+			
+			This scenario will place virtual wingmen at given x,y,z 
+			offsets relative to the current main simulator aircraft.
 		</description>
 		
 		<!-- inside aircraft, to left and right of main aircraft -->
