@@ -2,6 +2,10 @@
 <!-- PC-9M Wingman
      Author: David Young, 2018
      Virtual wingman who will follow main simulator aircraft.
+     
+     Copy this file into the Models folder corresponding to 
+     your aircraft, such as:
+     $HOME/Library/Application\ Support/FlightGear/Aircraft/org.flightgear.fgaddon/Aircraft/PC-9M/Models
 -->
 
 <PropertyList include="PC-9M.xml">
