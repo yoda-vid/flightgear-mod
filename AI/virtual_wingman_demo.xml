@@ -8,6 +8,8 @@
 <PropertyList>
 	<name>Virtual Wingman</name>
 
+	<model-path>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model-path>
+		
 	<scenario>
 
 		<description>
@@ -22,7 +24,7 @@
 		<entry>
 			<name>Flying Duo</name>
 			<type>wingman</type>
-			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<model alias="/model-path"/>
 			<x-offset>100</x-offset>
 			<y-offset>-60</y-offset>
 			<z-offset>30</z-offset>
@@ -38,7 +40,7 @@
 		<entry>
 			<name>Flying Truo</name>
 			<type>wingman</type>
-			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<model alias="/model-path"/>
 			<x-offset>100</x-offset>
 			<y-offset>60</y-offset>
 			<z-offset>30</z-offset>
@@ -55,7 +57,7 @@
 		<entry>
 			<name>Flying Quado</name>
 			<type>wingman</type>
-			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<model alias="/model-path"/>
 			<x-offset>50</x-offset>
 			<y-offset>-120</y-offset>
 			<z-offset>-30</z-offset>
@@ -71,7 +73,7 @@
 		<entry>
 			<name>Flying Truo</name>
 			<type>wingman</type>
-			<model>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model>
+			<model alias="/model-path"/>
 			<x-offset>50</x-offset>
 			<y-offset>120</y-offset>
 			<z-offset>-30</z-offset>
@@ -85,5 +87,5 @@
 		</entry>
 
 	</scenario>
-
+	
 </PropertyList>
