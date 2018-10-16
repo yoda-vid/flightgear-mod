@@ -8,7 +8,7 @@
      $HOME/Library/Application\ Support/FlightGear/Aircraft/org.flightgear.fgaddon/Aircraft/PC-9M/Models
 -->
 
-<PropertyList include="PC-9M.xml">
+<PropertyList include="PC9M.xml">
 
 	<nasal>
 		<load>
@@ -29,7 +29,7 @@
 				gear_position_right.setDoubleValue(getprop("/gear/gear/position-norm"));
 				<!--
 				props.dump(engine_n1);
-				props.dump(gear_position);
+				props.dump(gear_position_right);
 				-->
 				
 				<!-- recursively update -->
