@@ -14,7 +14,6 @@
 <PropertyList>
 	<name>Virtual Wingman</name>
 
-	<model-path>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model-path>
 	<!-- Path to the wingman aircraft model. These aircraft have been 
 	tested, and the model-path tag can be copied below in place of 
 	the current model-path tag. Also copy the wingman_model.xml 
@@ -28,6 +27,7 @@
 	  the FG installation folder's Aircraft folder
 	<model-path>Aircraft/f16/Models/PC-9M_wingman.xml</model-path>
 	-->
+	<model-path>Aircraft/f16/Models/virtual_wingman_model.xml</model-path>
 		
 	<scenario>
 
