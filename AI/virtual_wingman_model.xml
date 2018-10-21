@@ -27,6 +27,9 @@ F-16:
 
 	<nasal>
 		<load>
+			<!--var path = getprop("/sim/fg-home") ~ "/Export/wingman.nas";
+			io.load_nasal(path);
+			wingman.init_towCargo_dialog();-->
 			print("LOAD PC-9M wingman ", cmdarg().getPath());
 			var self = cmdarg();
 			<!--props.dump(self);-->
