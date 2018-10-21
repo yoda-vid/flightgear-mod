@@ -3,12 +3,31 @@
      Author: David Young, 2018
      Scenario to load multiple surrounding aircraft that will follow 
      exactly what you do.
+     
+     Instructions:
+     1) Update the "model-path" tag as per instructions below
+     2) Copy and update the "virtual_wingman_model.xml" file to this 
+        model-path location and update the file itself as per its 
+        own instructions
 -->
 
 <PropertyList>
 	<name>Virtual Wingman</name>
 
 	<model-path>Aircraft/PC-9M/Models/PC-9M_wingman.xml</model-path>
+	<!-- Path to the wingman aircraft model. These aircraft have been 
+	tested, and the model-path tag can be copied below in place of 
+	the current model-path tag. Also copy the wingman_model.xml 
+	file to this location and change its PropertyList include path.
+	
+	PC-9M:
+	<model-path>Aircraft/PC-9M/Models/virtal_wingman_model.xml</model-path>
+	
+	F-16:
+	* As of FG 2018.2.2, the f16 folder needs to be copied into 
+	  the FG installation folder's Aircraft folder
+	<model-path>Aircraft/f16/Models/PC-9M_wingman.xml</model-path>
+	-->
 		
 	<scenario>
 
