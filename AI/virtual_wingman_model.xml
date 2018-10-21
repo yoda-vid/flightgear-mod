@@ -23,7 +23,7 @@ F-16:
 <PropertyList include="F-16.xml">
 -->
 
-<PropertyList include="PC9M.xml">
+<PropertyList include="F-16.xml">
 
 	<nasal>
 		<load>
