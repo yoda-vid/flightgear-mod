@@ -40,6 +40,11 @@ F-16:
 			var gear_position_left = self.getNode("gear/gear[0]/position-norm", 1);
 			var gear_position_right = self.getNode("gear/gear[1]/position-norm", 1);
 			
+			<!-- WORKAROUND: turn off damage smoke in F-16 -->
+			var multiplay = self.getNode("sim/multiplay/generic/bool[1]", 1);
+			props.dump(multiplay);
+			multiplay.setBoolValue(1);
+			
 			<!-- update wingman with values from main simulator aircraft -->
 			var update = func {
 				engine_n1.setDoubleValue(getprop("/engines/engine/n1"));
