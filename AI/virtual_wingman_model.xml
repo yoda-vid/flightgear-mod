@@ -34,24 +34,45 @@ F-16:
 			var self = cmdarg();
 			<!--props.dump(self);-->
 			
-			<!-- engine n1 node to track engine power parameters -->
+			
+			<!-- COMMON AIRCRAFT PROPERTIES -->
+			
+			<!-- engine n1 node tracks engine power parameters -->
 			var engine_n1 = self.getNode("engines/engine/n1", 1);
+			
 			<!-- track both L and R gear in case they operate independently -->
 			var gear_position_left = self.getNode("gear/gear[0]/position-norm", 1);
 			var gear_position_right = self.getNode("gear/gear[1]/position-norm", 1);
 			
-			<!-- WORKAROUND: turn off damage smoke in F-16 -->
-			var multiplay = self.getNode("sim/multiplay/generic/bool[1]", 1);
-			props.dump(multiplay);
-			multiplay.setBoolValue(1);
+			
+			<!-- F-16 SPECIFIC PROPERTIES -->
+			
+			<!-- turn off damage-smoke in F-16 (damage-smoke.xml) -->
+			var multiplay_b1 = self.getNode("sim/multiplay/generic/bool[1]", 1);
+			multiplay_b1.setBoolValue(1);
+			
+			<!-- nozzle position and afterburner bounding box (f-16-base.xml, 
+			     afterburner.xml) -->
+			var multiplay_f0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+			<!-- AB_Flame (afterburner in F-16.xml), augmentation (f16-base.xml) -->
+			var multiplay_b39 = self.getNode("sim/multiplay/generic/bool[39]", 0);
+			<!-- AB_Flame (afterburner in F-16.xml) -->
+			var multiplay_f10 = self.getNode("sim/multiplay/generic/float[10]", 1);
+			<!-- exhaust (exhaust.xml), augmentation1 (f16-base.xml) -->
+			var engine_n2 = self.getNode("engines/engine/n2", 1);
+			
 			
 			<!-- update wingman with values from main simulator aircraft -->
 			var update = func {
 				engine_n1.setDoubleValue(getprop("/engines/engine/n1"));
+				engine_n2.setDoubleValue(getprop("/engines/engine/n1"));
+				multiplay_f0.setDoubleValue(getprop("/engines/engine/n1") / 50);
+				multiplay_f10.setDoubleValue(getprop("/engines/engine/n1") / 50);
+				multiplay_b39.setBoolValue(getprop("/engines/engine/n1") > 80);
 				gear_position_left.setDoubleValue(getprop("/gear/gear/position-norm"));
 				gear_position_right.setDoubleValue(getprop("/gear/gear/position-norm"));
 				<!--
-				props.dump(engine_n1);
+				props.dump(multiplay_b39);
 				props.dump(gear_position_right);
 				-->
 				
