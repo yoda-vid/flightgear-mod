@@ -6,18 +6,27 @@
      
      Instructions:
      1) Update the "model-path" tag as per instructions below
-     2) Copy and update the "virtual_wingman_model.xml" file to this 
-        model-path location and update the file itself as per its 
-        own instructions
+     2) Update the selected aircraft in "virtual_wingman_model.xml"
+     3) Copy the "virtual_wingman_model.xml" file into the folder 
+        corresponding to this model-path, such as:
+        
+        "[your_home]/Library/Application Support/FlightGear/Aircraft/
+         org.flightgear.fgaddon/Aircraft/PC-9M/Models"
+         
+        or if that doesn't work:
+        
+        "/Applications/FlightGear.app/Contents/Resources/data/
+         Aircraft/PC-9M/Models"
 -->
 
 <PropertyList>
 	<name>Virtual Wingman</name>
 
-	<!-- Path to the wingman aircraft model. These aircraft have been 
-	tested, and the model-path tag can be copied below in place of 
-	the current model-path tag. Also copy the wingman_model.xml 
-	file to this location and change its PropertyList include path.
+	<!-- Path to the wingman aircraft model.
+	
+	These aircraft have been tested with this scenario, and the model-path 
+	tag of your desired aircraft tag can be copied below in place of 
+	the current model-path.
 	
 	PC-9M:
 	<model-path>Aircraft/PC-9M/Models/virtal_wingman_model.xml</model-path>
@@ -25,7 +34,7 @@
 	F-16:
 	* As of FG 2018.2.2, the f16 folder needs to be copied into 
 	  the FG installation folder's Aircraft folder
-	<model-path>Aircraft/f16/Models/PC-9M_wingman.xml</model-path>
+	<model-path>Aircraft/f16/Models/virtal_wingman_model.xml</model-path>
 	-->
 	<model-path>Aircraft/f16/Models/virtual_wingman_model.xml</model-path>
 		

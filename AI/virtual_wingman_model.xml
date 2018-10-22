@@ -4,25 +4,17 @@
      Virtual wingman who will follow main simulator aircraft.
      
      Instructions:
-     1) Replace the ProperList tag below with the desired aircraft
-     2) Copy this file into the Models folder corresponding to 
-        your aircraft, such as:
-        
-        "[your_home]/Library/Application Support/FlightGear/Aircraft/
-         org.flightgear.fgaddon/Aircraft/PC-9M/Models"
-         
-        or if that doesn't work:
-        
-        "/Applications/FlightGear.app/Contents/Resources/data/
-         Aircraft/PC-9M/Models"
+     * Replace the ProperList tag below with the aircraft you 
+       selected in "virtual_wingman_scenario.xml"
+-->
 
+<!-- Property list extending external aircraft's properties
 PC-9M:
-<PropertyList include="Aircraft/PC-9M/Models/PC9M.xml">
+<PropertyList include="PC9M.xml">
 
 F-16:
 <PropertyList include="F-16.xml">
 -->
-
 <PropertyList include="F-16.xml">
 
 	<nasal>
