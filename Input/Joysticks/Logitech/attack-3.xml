@@ -67,6 +67,8 @@
 		<binding>
 			<command>property-scale</command>
 			<property>/controls/flight/aileron</property>
+			<!-- adjust offset for calibration; may need to change repeatedly -->
+			<offset type="double">0.1</offset>
 			<squared type="bool">true</squared>
 		</binding>
 	</axis>
@@ -77,6 +79,8 @@
 		<binding>
 			<command>property-scale</command>
 			<property>/controls/flight/elevator</property>
+			<!-- adjust offset for calibration; may need to change repeatedly -->
+			<offset type="double">0.1</offset>
 			<factor type="double">-1.0</factor>
 			<squared type="bool">true</squared>
 		</binding>
