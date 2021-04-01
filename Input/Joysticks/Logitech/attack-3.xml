@@ -129,9 +129,8 @@
 		</mod-up>
 	</button>
 	
-	<!-- Hat button labeled "2" -->
+	<!-- Hat button 2: view up, zoom out, elevator trim up -->
 	<button n="1">
-		<!-- Look up; normal FOV zoom with Modifier 1; elevator trim up (numerically down) with Modifier 2 -->
 		<desc>Look up; Zoom normal; Elevator trim up</desc>
 		<repeatable type="bool">true</repeatable>
 		<binding>
@@ -139,10 +138,13 @@
 			<script>
 				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
 				if (mod == nil or mod == 0) {
+					<!-- look up -->
 					setprop("/sim/current-view/pitch-offset-deg", getprop("/sim/current-view/pitch-offset-deg")+2);
 				} elsif (mod == 1) {
-					setprop("/sim/current-view/field-of-view", 55);
+					<!-- zoom out -->
+					setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view")+5);
 				} elsif (mod == 2) {
+					<!-- elevator trim up (numerically down) -->
 					controls.elevatorTrim(-0.75)
 				}
 			</script>
@@ -165,9 +167,8 @@
 		</mod-up>
 	</button>
 	
-	<!-- Hat button labeled "3" -->
+	<!-- Hat button 3: view down, zoom in, elevator trim down -->
 	<button n="2">
-		<!-- Look down; center FOV with Modifier 1; elevator trim down (numerically down) with Modifier 2 -->
 		<desc>Look down; Center view; Elevator trim down</desc>
 		<repeatable type="bool">true</repeatable>
 		<binding>
@@ -175,11 +176,13 @@
 			<script>
 				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
 				if (mod == nil or mod == 0) {
+					<!-- look down -->
 					setprop("/sim/current-view/pitch-offset-deg", getprop("/sim/current-view/pitch-offset-deg")-2);
 				} elsif (mod == 1) {
-					setprop("/sim/current-view/pitch-offset-deg", 0);
-					setprop("/sim/current-view/heading-offset-deg", 0);
+					<!-- zoom in -->
+					setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view")-5);
 				} elsif (mod == 2) {
+					<!-- elevator trim down (numerically up) -->
 					controls.elevatorTrim(0.75)
 				}
 			</script>
@@ -202,9 +205,8 @@
 		</mod-up>
 	</button>
 	
-	<!-- Hat button labeled "4" -->
+	<!-- Hat button 4: view left, center view, aileron trim left -->
 	<button n="3">
-		<!-- Look left; zoom out with Modifier 1; trim L aileron with Modifier 2 -->
 		<desc>Look left; Zoom out; Left aileron trim</desc>
 		<repeatable type="bool">true</repeatable>
 		<binding>
@@ -212,10 +214,14 @@
 			<script>
 				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
 				if (mod == nil or mod == 0) {
+					<!-- look left -->
 					setprop("/sim/current-view/heading-offset-deg", getprop("/sim/current-view/heading-offset-deg")+2);
 				} elsif (mod == 1) {
-					setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view")+5);
+					<!-- center FOV -->
+					setprop("/sim/current-view/pitch-offset-deg", 0);
+					setprop("/sim/current-view/heading-offset-deg", 0);
 				} elsif (mod == 2) {
+					<!-- trim aileron to left -->
 					controls.aileronTrim(-0.5)
 				}
 			</script>
@@ -238,7 +244,7 @@
 		</mod-up>
 	</button>
 	
-	<!-- Hat button labeled "5" -->
+	<!-- Hat button 5: view right, normal zoom, aileron trim right -->
 	<button n="4">
 		<!-- Look right; zoom in with Modifier 1; trim R aileron with Modifier 2 -->
 		<desc>Look right; Zoom in; Right Aileron trim</desc>
@@ -248,10 +254,13 @@
 			<script>
 				mod = getprop("/input/joysticks/js[0]/Logitech-Attack-3-modifier");
 				if (mod == nil or mod == 0) {
+					<!-- look right -->
 					setprop("/sim/current-view/heading-offset-deg", getprop("/sim/current-view/heading-offset-deg")-2);
 				} elsif (mod == 1) {
-					setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view")-5);
+					<!-- normal FOV zoom -->
+					setprop("/sim/current-view/field-of-view", 55);
 				} elsif (mod == 2) {
+					<!-- trim aileron to right -->
 				  controls.aileronTrim(0.5)
 				}
 			</script>
