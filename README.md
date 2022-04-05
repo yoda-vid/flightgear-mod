@@ -11,6 +11,7 @@ This repo contains tweaks to a few existing FlightGear components as well as a f
 
   1. Copy `AI/virtual_wingman_scenario.xml` to your FlightGear AI folder and swap the `model-path` tag to your preferred wingman aircraft
   1. Copy `AI/virtual_wingman_model.xml` to the chosen aircraft's `Models` folder and swap the `PropertyList` tag for this aircraft
+  1. Select the scenario from the "AI > Traffic and Scenario Settings"  menu.
   1. See [here](https://github.com/the4thchild/flightgear-mod/blob/master/AI/virtual_wingman_scenario.xml) for more detailed instructions
 
 ## Aircraft

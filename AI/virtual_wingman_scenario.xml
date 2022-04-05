@@ -17,6 +17,13 @@
         
         "/Applications/FlightGear.app/Contents/Resources/data/
          Aircraft/PC-9M/Models"
+     4) Copy this file, "virtual_wingman_scenario.xml", into the
+        application AI folder, such as:
+        
+        "/Applications/FlightGear.app/Contents/Resources/data/AI"
+     
+     5) Select the scenario from the AI > Traffic and Scenario Settings
+        menu.
 -->
 
 <PropertyList>
